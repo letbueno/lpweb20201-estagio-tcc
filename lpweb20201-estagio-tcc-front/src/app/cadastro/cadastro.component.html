@@ -1,43 +1,54 @@
+<nav class="navbar sticky-top navbar-dark bg-dark">
+    <a class="navbar-brand ">Cadastrar Perfil</a>
+</nav>
 <form action="cadastro"  #cadastro="ngForm">
+    <br>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" placeholder="Nome" [(ngModel)]="nome">
+      </div>
 
-  <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" class="form-control" name="nome" [(ngModel)]="nome">
-  </div>
-  <legend class="col-form-label">Sexo</legend>
-  <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="f" [(ngModel)]="sexo">
-      <label class="form-check-label" for="inlineRadio1">Feminino</label>
-  </div>
-  <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="m" [(ngModel)]="sexo">
-      <label class="form-check-label" for="inlineRadio2">Masculino</label>
-  </div>
-  <div class="form-group">
-      <label for="cpf">CPF</label>
-      <input type="cpf" class="form-control" id="cpf" name = "cpf" placeholder="000.000.000-00" [(ngModel)]="cpf">
-  </div>
-  <div class="form-group">
-      <label for="telefone">Telefone</label>
-      <input type="telefone" class="form-control" id="telefone" name = "telefone" placeholder="+00 (00) 0 0000-0000" [(ngModel)]="telefone">
-  </div>
-
-  <div class="form-group">
-      <label for="endereco">Endereço</label>
-      <input type="endereco" class="form-control" id="endereco" name= "endereco" [(ngModel)]="endereco">
-  </div>
-  <div class="form-group">
-      <label for="estado">Estado</label>
-      <input type="estado" class="form-control" id="estado" name = "estado" placeholder="UF" [(ngModel)]="estado">
-  </div>
-  <div class="form-group">
-      <label for="cidade">Cidade</label>
-      <input type="cidade" class="form-control" id="cidade" name = "cidade" [(ngModel)]="cidade">
-  </div>
-  <div class="form-group">
-    <label for="cidade">CEP</label>
-    <input type="cidade" class="form-control" id="cep" name = "cep" [(ngModel)]="cep">
-</div>
-
-  <button type="button" class="btn btn-lg btn-primary" (click)="enviarDados()">Cadastrar</button>
+        <div class="col-md-3 mb-2">
+          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" [(ngModel)]="cpf">
+        </div>
+        <div class="col-md-3 mb-2">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" [(ngModel)]="telefone">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-2">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" [(ngModel)]="cidade">
+      </div>
+      <div class="col-md-1 mb-1">
+        <label for="estado">Estado</label>
+        <input type="text" class="form-control" id="estado" name="estado" placeholder="UF" [(ngModel)]="estado">
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="endereco">Endereço</label>
+        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Quadra, Rua, lote.." [(ngModel)]="endereco">
+     </div>
+     <div class="col-md-2 mb-2">
+        <label for="cep">CEP</label>
+        <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" [(ngModel)]="cep">
+    </div>
+    </div>
+    <legend class="col-form-label">Sexo</legend>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="f"  [(ngModel)]="sexo">
+        <label class="form-check-label" for="inlineRadio1">F</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="m"  [(ngModel)]="sexo">
+        <label class="form-check-label" for="inlineRadio2">M</label>
+    </div>
+    
+    <div class="col-md-4 mb-0">
+        <br>
+        <button type="button" class="btn btn-primary" (click)="enviarDados()">Cadastrar</button>
+        <br>
+    </div>
 </form>

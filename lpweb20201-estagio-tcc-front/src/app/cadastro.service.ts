@@ -9,7 +9,8 @@ import { AuthService } from './auth.service';
 export class CadastroService {
 
   constructor(private http: HttpClient, private auth$: AuthService) {
-    cadastro(dados:any) {
-      this.http.post(environment.API_URL.concat('perfil-logado/'), dados, this.auth$.httpOptions()).subscribe();
+  //   cadastro(dados:any) {
+  //     this.http.post(environment.API_URL.concat('perfil-logado/'), dados, this.auth$.httpOptions()).subscribe();
   }
+
 }

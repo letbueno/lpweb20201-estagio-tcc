@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AtualizarComponent } from './atualizar/atualizar.component';
 
 registerLocaleData(localePt, 'pt', localePtExtra);
 
@@ -24,7 +25,8 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     LoginComponent,
     SobreComponent,
     PaginaNaoEncontradaComponent,
-    CadastroComponent
+    CadastroComponent,
+    AtualizarComponent
   ],
   imports: [
     BrowserModule,

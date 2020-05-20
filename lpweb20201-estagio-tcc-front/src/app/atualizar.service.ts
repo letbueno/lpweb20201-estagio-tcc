@@ -1,23 +1,23 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class CadastroService {
+export class AtualizarService {
+
   constructor(private http: HttpClient, private auth$: AuthService) {}
 
-  cadastro(dados: any) {
+  atualizar(data: any, profile: any) {
     this.http
-      .post(
-        environment.API_URL.concat('perfil-logado/'),
-        dados,
+      .put(
+        environment.API_URL.concat(`perfis/${profile.id}/`),
+        data,
         this.auth$.httpOptions()
       )
       .subscribe();
-
-
   }
 }

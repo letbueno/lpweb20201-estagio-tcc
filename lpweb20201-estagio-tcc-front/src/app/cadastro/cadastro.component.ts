@@ -25,13 +25,13 @@ export class CadastroComponent implements OnInit {
   cpf= null;
   telefone= null;
   endereco = null;
-  estado  = null;
+  estado_uf  = null;
   cidade= null;
   cep = null;
-  email = null;
 
 
-  uf = ['AC','AL','AP','AM','BA','DF','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE'
+
+  uf = ['AC','AL','AP','AM','BA','DF','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'
   ];
 
   ngOnInit(): void {
@@ -54,10 +54,10 @@ export class CadastroComponent implements OnInit {
       cpf: this.cpf,
       telefone: this.telefone,
       endereco: this.endereco,
-      estado: this.estado,
+      estado_uf: this.estado_uf,
       cidade: this.cidade,
       cep: this.cep,
-      email: this.email,
+
 
     };
     this.cadastro$.cadastro(dados);

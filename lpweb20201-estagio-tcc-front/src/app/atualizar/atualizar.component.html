@@ -3,58 +3,116 @@
 </nav>
 <form action="atualizar"  #atualizar="ngForm">
     <br>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
+    <div class="form-row ml-2">
+      <div class="col-md-4 mb-2">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" [(ngModel)]="nome">
+        <input class="form-control" type="text" placeholder="Digite seu nome" [(ngModel)] = "nome" name = "nome" #nomeValido="ngModel"
+        required
+        [class.is-invalid]="nomeValido.invalid && (nomeValido.dirty || nomeValido.touched)">
+      <small class="form-text text-muted"
+        *ngIf="!(nomeValido.invalid && (nomeValido.dirty || nomeValido.touched))">Informe o nome completo</small>
+      <div *ngIf="nomeValido.invalid && (nomeValido.dirty || nomeValido.touched)" class="invalid-feedback">
+        <span *ngIf="nomeValido.errors.required">Você precisa informar o nome</span>
+      </div>
       </div>
 
         <div class="col-md-2 mb-2">
           <label for="cpf">CPF</label>
-          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" [(ngModel)]="cpf">
+
+          <input class="form-control" type="text" placeholder="000.000.000-00"[(ngModel)] = "cpf" name = "cpf" #CPFV="ngModel" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+          required
+          [class.is-invalid]="CPFV.invalid && (CPFV.dirty || CPFV.touched)">
+        <small class="form-text text-muted"
+          *ngIf="!(CPFV.invalid && (CPFV.dirty || CPFV.touched))">Informe seu CPF</small>
+        <div *ngIf="CPFV.invalid && (CPFV.dirty || CPFV.touched)" class="invalid-feedback">
+          <span *ngIf="CPFV.errors.required">Você precisa informar seu CPF</span>
         </div>
-        <div class="col-md-4 mb-3">
-          <label for="email">E-Mail</label>
-          <input type="text" class="form-control" id="email" name="email" placeholder="Digite seu E-mail" [(ngModel)]="email">
         </div>
+        <div class="col-md-2 mb-2">
+          <label for="cidade">Cidade</label><input type="text" class="form-control" id="inputCity" [(ngModel)] = "cidade" name = "cidade" #cidadeV="ngModel"
+          required
+          [class.is-invalid]="cidadeV.invalid && (cidadeV.dirty || cidadeV.touched)">
+        <small class="form-text text-muted"
+          *ngIf="!(cidadeV.invalid && (cidadeV.dirty || cidadeV.touched))">Informe sua cidade</small>
+        <div *ngIf="cidadeV.invalid && (cidadeV.dirty || cidadeV.touched)" class="invalid-feedback">
+          <span *ngIf="cidadeV.errors.required">Você precisa informar sua cidade</span>
+        </div>
+        </div>
+
     </div>
-    <div class="form-row">
-      <div class="col-md-2 mb-2">
-        <label for="cidade">Cidade</label>
-        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade"  [(ngModel)]="cidade">
-      </div>
+    <div class="form-row ml-2">
+
       <div class="col-md-1 mb-1">
         <label for="estado">Estado</label>
-        <input type="text" class="form-control" id="estado" name="estado" placeholder="UF" [(ngModel)]="estado">
+        <select id="inputEstado" class="form-control" name = "estado" [(ngModel)] = "estado_uf"   #estadoV="ngModel" required
+      [class.is-invalid]="estadoV.invalid && (estadoV.dirty || estadoV.touched)">
+        <option *ngFor = "let estado of uf">{{estado}}</option>
+      </select>
+      <small class="form-text text-muted"
+                  *ngIf="!(estadoV.invalid && (estadoV.dirty || estadoV.touched))">Selecione UF do seu estado.</small>
+              <div *ngIf="estadoV.invalid && (estadoV.dirty || estadoV.touched)" class="invalid-feedback">
+                <span *ngIf="estadoV.errors.required">Você precisa selecionar o UF do seu estado</span>
+              </div>
       </div>
       <div class="col-md-4 mb-3">
         <label for="endereco">Endereço</label>
-        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Quadra, Rua, lote.." [(ngModel)]="endereco">
+        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Quadra, Rua, lote.." [(ngModel)]="endereco" #endV="ngModel"
+        required
+        [class.is-invalid]="endV.invalid && (endV.dirty || endV.touched)">
+      <small class="form-text text-muted"
+        *ngIf="!(endV.invalid && (endV.dirty || endV.touched))">Informe seu endereço completo</small>
+      <div *ngIf="endV.invalid && (endV.dirty || endV.touched)" class="invalid-feedback">
+        <span *ngIf="endV.errors.required">Você precisa informar seu endereço completo</span>
+      </div>
      </div>
      <div class="col-md-2 mb-2">
         <label for="cep">CEP</label>
-        <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" [(ngModel)]="cep">
+        <input type="number" class="form-control" id="inputCEP" [(ngModel)] = "cep" name = "cep" #cepV="ngModel"
+      required
+      [class.is-invalid]="cepV.invalid && (cepV.dirty || cepV.touched)">
+    <small class="form-text text-muted"
+      *ngIf="!(cepV.invalid && (cepV.dirty || cepV.touched))">Informe o CEP da sua cidade</small>
+    <div *ngIf="cepV.invalid && (cepV.dirty || cepV.touched)" class="invalid-feedback">
+      <span *ngIf="cepV.errors.required">Você precisa informar o CEP da sua cidade</span>
+    </div>
     </div>
     <div class="col-md-3 mb-2">
       <label for="telefone">Telefone</label>
-      <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" [(ngModel)]="telefone">
+      <input class="form-control" type="number" placeholder="(00) 0000-0000" [(ngModel)] = "telefone" name = "telefone" #telV="ngModel"
+      required
+      [class.is-invalid]="telV.invalid && (telV.dirty || telV.touched)">
+    <small class="form-text text-muted"
+      *ngIf="!(telV.invalid && (telV.dirty || telV.touched))">Informe seu telefone celular com DDD</small>
+    <div *ngIf="telV.invalid && (telV.dirty || telV.touched)" class="invalid-feedback">
+      <span *ngIf="telV.errors.required">Você precisa informar seu telefone celular</span>
+    </div>
   </div>
     </div>
+    <div class="form-row ml-2">
     <legend class="col-form-label">Sexo</legend>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="f"  [(ngModel)]="sexo">
-        <label class="form-check-label" for="inlineRadio1">F</label>
+      <input type="radio" id="Feminino" [(ngModel)]= "sexo" name="sexo" #sexoV="ngModel" value="F" required
+      [class.is-invalid]="sexoV.invalid && (sexoV.dirty || sexoV.touched)">
+        <label class="form-check-label" for="inlineRadio1">Feminino</label>
     </div>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="m"  [(ngModel)]="sexo">
-        <label class="form-check-label" for="inlineRadio2">M</label>
+      <input type="radio" id="Masculino" [(ngModel)]= "sexo" name="sexo" #sexoV="ngModel" value="M" required
+      [class.is-invalid]="sexoV.invalid && (sexoV.dirty || sexoV.touched)">
+
+    </div>
+    <label class="form-check-label" for="inlineRadio2">Masculino</label>
+  </div>
+  <div class = 'ml-2'>
+        <small class="form-text text-muted"
+        *ngIf="!(sexoV.invalid && (sexoV.dirty || sexoV.touched))">Informe o sexo.</small>
+      <div *ngIf="sexoV.invalid && (sexoV.dirty || sexoV.touched)" class="invalid-feedback">
+        <span *ngIf="sexoV.errors.required">Você precisa informar o sexo</span>
+      </div>
     </div>
     <div class="col-md-4 mb-0">
         <br>
-        <button type="button" class="btn btn-primary mr-2" (click)="enviarDados()"><i class="fas fa-check"></i>Atualizar</button>
-        <a href="http://localhost:4200/perfil">
-          <button type="button" class="btn btn-primary" ><i class="far fa-user"></i>Voltar Para Perfil</button>
-        </a>
+        <button type="button" class="btn btn-primary mr-2" (click)="enviarDados()"  [routerLink]="['/perfil']"><i class="fas fa-check"></i>Atualizar</button>
+
         <br>
     </div>
 </form>

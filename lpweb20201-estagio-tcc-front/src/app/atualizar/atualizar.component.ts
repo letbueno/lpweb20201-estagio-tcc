@@ -28,6 +28,7 @@ export class AtualizarComponent implements OnInit {
   estado = null;
   cidade = null;
   cep = null;
+  email = null;
 
 
   uf = ['AC','AL','AP','AM','BA','DF','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE'
@@ -47,6 +48,7 @@ export class AtualizarComponent implements OnInit {
           this.estado = this.perfil.estado_uf;
           this.cidade = this.perfil.cidade;
           this.cep = this.perfil.cep;
+          this.email = this.perfil.email;
         },
         (erro) => (this.temPerfil = false)
       );
@@ -66,6 +68,7 @@ export class AtualizarComponent implements OnInit {
       estado_uf: this.estado,
       cidade: this.cidade,
       cep: this.cep,
+      email: this.email,
     };
     this.atualizar$.atualizar(data, this.perfil);
   }

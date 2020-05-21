@@ -99,7 +99,13 @@
                     <div class="campo">CEP</div>
                     <div class="valor">{{perfil.cep}}</div>
                 </div>
-
+                <a href="http://localhost:4200/atualizar">
+                    <br>
+                    <button class="btn btn-primary">
+                        <i class="far fa-edit"></i>
+                        Atualizar Perfil
+                    </button>
+               </a>
             </div>
         </div>
 
@@ -109,13 +115,12 @@
                 <h5 class="card-title">Você não possui um perfil</h5>
                 <p class="card-text">Você ainda não cadastrou um perfil. A funcionalidade de cadastro estará disponível
                     em breve a partir desta tela.</p>
-                    <button
-                    class="btn btn-primary"
-
-                    routerLinkActive="router-link-active"
-                  >
-                    Sim, eu quero !
-                  </button>
+                    <a href="http://localhost:4200/cadastro">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Cadastrar Perfil
+                        </button>
+                   </a>
             </div>
         </div>
 

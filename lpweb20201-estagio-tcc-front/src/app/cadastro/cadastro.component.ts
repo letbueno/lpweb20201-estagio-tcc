@@ -28,6 +28,7 @@ export class CadastroComponent implements OnInit {
   estado  = null;
   cidade= null;
   cep = null;
+  email = null;
 
 
   uf = ['AC','AL','AP','AM','BA','DF','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE'
@@ -56,6 +57,7 @@ export class CadastroComponent implements OnInit {
       estado: this.estado,
       cidade: this.cidade,
       cep: this.cep,
+      email: this.email,
 
     };
     this.cadastro$.cadastro(dados);
